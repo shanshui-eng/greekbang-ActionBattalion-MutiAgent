@@ -1,0 +1,7 @@
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://dashscope.aliyuncs.com/apps/anthropic",
+    "ANTHROPIC_API_KEY": "sk-5fbf43b30cb649339d02072c60816343",
+    "ANTHROPIC_MODEL": "glm-5"
+  }
+}
