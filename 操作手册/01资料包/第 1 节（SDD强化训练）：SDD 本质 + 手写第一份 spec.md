@@ -18,8 +18,9 @@ AI 编程范式的三级跃迁我们已经听过：Prompt → Context → Harnes
 
 给 [ai-knowledge-base/v1-skeleton](https://github.com/huangjia2019/ai-knowledge-base) 写一份项目愿景 spec，决定这个知识库到底要做什么、不做什么、怎么判断成功。这份 spec 最终会变成 `AGENTS.md` 的“项目定义”段（第 2 节会重写它）。
 
-
 ai-knowledge-base超链接在这里（打不开链接需科学上网）[https://github.com/huangjia2019/ai-knowledge-base](https://github.com/huangjia2019/ai-knowledge-base)
+
+
 
 
 ## 环境准备
