@@ -1,0 +1,196 @@
+{
+  "analyzed_at": "2026-05-11T22:00:00+08:00",
+  "source_file": "knowledge/raw/github-trending-2026-05-11.json",
+  "items": [
+    {
+      "id": "github-deepseek-tui",
+      "title": "DeepSeek-TUI",
+      "source": "github",
+      "source_url": "https://github.com/Hmbown/DeepSeek-TUI",
+      "summary": "DeepSeek V4 的终端编码 Agent，Rust 实现，支持 100 万 token 上下文窗口、流式推理、自动模型选择、多 Provider（Ollama/vLLM/OpenAI 兼容）、技能系统、MCP 协议接入。内置三种模式（Plan/Agent/YOLO）和会话恢复功能。",
+      "highlight": "周增 2.2 万星，是目前 DeepSeek 生态最成熟的终端 Agent 工具，工具链完整度堪比 Claude Code 的平替方案。",
+      "score": 9,
+      "score_reason": "突破性工具，填补了 DeepSeek 模型在终端 Agent 场景的空白，功能完整度（1M 上下文、MCP、子 Agent、LSP 诊断）已达生产级水平。",
+      "tags": ["agent", "llm", "toolkit"],
+      "status": "published",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 24964,
+          "language": "Rust"
+        }
+      }
+    },
+    {
+      "id": "github-mattpocock-skills",
+      "title": "skills (mattpocock)",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "summary": "TypeScript 专家 Matt Pocock 分享的 AI Agent 技能集合，包含 14 个可直接用于 Claude Code 等 Agent 的 Skill 文件，覆盖代码审查、测试生成、UI 开发等工程场景。",
+      "highlight": "周增 1.27 万星，是目前最受欢迎的 Agent Skills 仓库之一，展示了 Skill 生态的最佳实践。",
+      "score": 8,
+      "score_reason": "对 Agent 工程实践有直接指导价值，质量高，但更多是经验分享而非突破性技术。",
+      "tags": ["agent", "toolkit"],
+      "status": "published",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 71396,
+          "language": "Shell"
+        }
+      }
+    },
+    {
+      "id": "github-ruflo",
+      "title": "ruflo",
+      "source": "github",
+      "source_url": "https://github.com/ruvnet/ruflo",
+      "summary": "面向 Claude Code 的多 Agent 编排平台，支持 100+ 专业 Agent、HNSW 向量记忆、零信任联邦通信、MCP 协议接入。提供 32 个插件覆盖从代码质量到安全审计的全流程。",
+      "highlight": "48.9K 星，功能极其丰富（100+ Agents、联邦通信、自学习），但复杂度高，学习曲线陡峭。",
+      "score": 8,
+      "score_reason": "多 Agent 编排能力突出，联邦通信设计独特，适合企业级场景；但存在营销过重、功能膨胀的问题。",
+      "tags": ["agent", "framework", "security"],
+      "status": "published",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 48897,
+          "language": "TypeScript"
+        }
+      }
+    },
+    {
+      "id": "github-addyosmani-agent-skills",
+      "title": "agent-skills (addyosmani)",
+      "source": "github",
+      "source_url": "https://github.com/addyosmani/agent-skills",
+      "summary": "Google Chrome 工程师 Addy Osmani 发布的 AI Agent 技能集合，面向生产级工程场景，提供可复用的 Agent 指令和工作流模板。",
+      "highlight": "由 Chrome 团队核心成员维护，质量有保障，直接可用于日常编码 Agent 优化。",
+      "score": 8,
+      "score_reason": "作者权威性高，技能质量可靠，对提升 Agent 代码质量有直接帮助。",
+      "tags": ["agent", "toolkit", "coding"],
+      "status": "published",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 39288,
+          "language": "Shell"
+        }
+      }
+    },
+    {
+      "id": "github-tradingagents",
+      "title": "TradingAgents",
+      "source": "github",
+      "source_url": "https://github.com/TauricResearch/TradingAgents",
+      "summary": "基于 LangGraph 的多 Agent 金融交易框架，模拟真实交易公司的人分工：基本面分析师、情绪分析师、技术分析师、研究员（多空辩论）、交易员、风控团队和投资组合经理。",
+      "highlight": "73.7K 星，将多 Agent 协作应用于金融交易的优秀范例，架构设计清晰（分析师→研究员→交易员→风控→决策）。",
+      "score": 8,
+      "score_reason": "多 Agent 协作设计精良，实际可运行，论文支撑，但在真实交易中的效果仍需验证。",
+      "tags": ["agent", "framework", "paper"],
+      "status": "published",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 73655,
+          "language": "Python"
+        }
+      }
+    },
+    {
+      "id": "github-pixelle-video",
+      "title": "Pixelle-Video",
+      "source": "github",
+      "source_url": "https://github.com/AIDC-AI/Pixelle-Video",
+      "summary": "AI 全自动短视频生成引擎，输入文案即可自动生成完整短视频，集成脚本编写、语音合成、画面匹配和剪辑流程。",
+      "highlight": "AI 视频生成赛道热门项目，全自动化流程降低了短视频制作门槛。",
+      "score": 6,
+      "score_reason": "功能实用，但 AI 视频生成领域竞争激烈，差异化不够明显，与同类产品（如 Runway、Pika）相比暂无突出优势。",
+      "tags": ["multimodal", "toolkit"],
+      "status": "draft",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 15096,
+          "language": "Python"
+        }
+      }
+    },
+    {
+      "id": "github-pageindex",
+      "title": "PageIndex",
+      "source": "github",
+      "source_url": "https://github.com/VectifyAI/PageIndex",
+      "summary": "无向量库、基于推理的 RAG 系统，通过构建文档的层级树状索引，用 LLM 推理替代向量相似度搜索进行检索。在 FinanceBench 上达到 98.7% 准确率。",
+      "highlight": "颠覆传统 Vector RAG 范式，用推理替代相似度搜索，理论优雅且效果惊艳（98.7% 准确率）。",
+      "score": 9,
+      "score_reason": "RAG 领域的重要创新，摆脱了向量数据库依赖，用树搜索+推理实现更精准的检索，可能是下一代 RAG 架构方向。",
+      "tags": ["rag", "framework", "llm"],
+      "status": "published",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 30599,
+          "language": "Python"
+        }
+      }
+    },
+    {
+      "id": "github-9router",
+      "title": "9router",
+      "source": "github",
+      "source_url": "https://github.com/decolua/9router",
+      "summary": "免费 AI 编程代理服务，聚合 40+ API 提供商（Claude/GPT/Gemini 等），支持自动故障切换和 Token 节省（RTK -40%），连接 Cursor、Cline、Copilot 等 IDE。",
+      "highlight": "解决开发者多 API 管理痛点，免费 + 聚合路由的设计切中实际需求。",
+      "score": 6,
+      "score_reason": "实用工具，但业务模式（聚合免费 API）的可持续性存疑，技术壁垒不高。",
+      "tags": ["toolkit", "inference"],
+      "status": "draft",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 8021,
+          "language": "JavaScript"
+        }
+      }
+    },
+    {
+      "id": "github-dexter",
+      "title": "dexter",
+      "source": "github",
+      "source_url": "https://github.com/virattt/dexter",
+      "summary": "自主金融研究 Agent，自动执行深度金融分析，支持多数据源接入和报告生成。",
+      "highlight": "金融领域垂直 Agent，自动化深度研究的能力对企业金融分析有实用价值。",
+      "score": 7,
+      "score_reason": "定位清晰，金融领域落地价值高，但与 TradingAgents 功能有所重叠，差异化不够明显。",
+      "tags": ["agent", "toolkit"],
+      "status": "draft",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 25255,
+          "language": "TypeScript"
+        }
+      }
+    },
+    {
+      "id": "github-local-deep-research",
+      "title": "local-deep-research",
+      "source": "github",
+      "source_url": "https://github.com/LearningCircuit/local-deep-research",
+      "summary": "全本地 AI 深度研究系统，支持本地 LLM（Ollama/llama.cpp）和云模型，集成 10+ 搜索引擎（arXiv/PubMed/Wikipedia 等），SimpleQA 达 95%，数据加密存储，无遥测。",
+      "highlight": "首个在单张 RTX 3090 上实现 ~95% SimpleQA 的开源项目，隐私优先（全程本地运行 + 数据加密）。",
+      "score": 9,
+      "score_reason": "本地深度研究领域的标杆项目，性能优秀且完全离线可运行，对隐私敏感用户和研究机构价值巨大。",
+      "tags": ["rag", "llm", "framework"],
+      "status": "published",
+      "fetched_at": "2026-05-11T12:00:00+08:00",
+      "metadata": {
+        "github": {
+          "stars": 7183,
+          "language": "Python"
+        }
+      }
+    }
+  ]
+}

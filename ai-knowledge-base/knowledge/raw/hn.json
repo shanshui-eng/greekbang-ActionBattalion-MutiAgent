@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Tell HN: I'm a PM at a big system of record SaaS. We're cooked",
+    "url": "https://news.ycombinator.com/item?id=46917886",
+    "source": "hn",
+    "popularity": 103,
+    "summary": "A senior PM argues AI startups won't disrupt SoR SaaS, but cloud providers and AI labs competing for SaaS margins via AI agents are the real threat."
+  },
+  {
+    "title": "Ask HN: Why are so many rolling out their own AI/LLM agent sandboxing solution?",
+    "url": "https://news.ycombinator.com/item?id=46699324",
+    "source": "hn",
+    "popularity": 32,
+    "summary": "Many developers run coding agents in custom sandboxes. Author asks what's missing from existing solutions and what a 'good enough' standard looks like."
+  },
+  {
+    "title": "A curated directory of open-source AI projects",
+    "url": "https://news.ycombinator.com/item?id=46431201",
+    "source": "hn",
+    "popularity": 12,
+    "summary": "OSSAIX is a curated directory for open-source AI projects covering LLMs, RAG/agents, local AI, and media generation."
+  },
+  {
+    "title": "Show HN: AgentArmor – open-source 8-layer security framework for AI agents",
+    "url": "https://github.com/Agastya910/agentarmor",
+    "source": "hn",
+    "popularity": 10,
+    "summary": "An open-source framework wrapping agentic architectures with 8 security layers: prompt injection detection, encryption, risk scoring, PII redaction, mutual auth, etc."
+  },
+  {
+    "title": "Show HN: Agentpanel – Universal LLM API Written in Rust",
+    "url": "https://github.com/IncredibleDevHQ/agent-panel",
+    "source": "hn",
+    "popularity": 9,
+    "summary": "An observability platform in Rust for optimizing LLM/AI agent control flow, token usage, and correctness. Gateway to 100+ LLMs across 20+ platforms."
+  },
+  {
+    "title": "Show HN: Mirror AI – LLM agent that takes action, not just chat",
+    "url": "https://themirrorai.com",
+    "source": "hn",
+    "popularity": 5,
+    "summary": "A cross-platform desktop LLM agent that runs terminal commands, manages files, calls APIs, and chains steps locally with no SaaS backend."
+  },
+  {
+    "title": "We built a type-safe Python ORM for RedisGraph/FalkorDB",
+    "url": "https://github.com/hello-tmst/graphorm",
+    "source": "hn",
+    "popularity": 5,
+    "summary": "GraphORM is a type-safe Python ORM for RedisGraph/FalkorDB, targeting AI agent developers for storing long-term memory as graphs."
+  },
+  {
+    "title": "Benchmarking LLM Agents on Consequential Real World Tasks",
+    "url": "https://the-agent-company.com/",
+    "source": "hn",
+    "popularity": 3,
+    "summary": "A locally-runnable benchmark to test LLM and AI agents' abilities to perform real-world tasks, providing a standardized evaluation framework."
+  },
+  {
+    "title": "Practical tips to optimize documentation for LLMs, AI agents, and chatbots",
+    "url": "https://biel.ai/blog/optimizing-docs-for-ai-agents-complete-guide",
+    "source": "hn",
+    "popularity": 4,
+    "summary": "A comprehensive guide on structuring technical documentation so LLMs and AI agents can better parse and use the content."
+  },
+  {
+    "title": "Universal ROS bridge for AI agents – control robots with LLMs",
+    "url": "https://github.com/webthree549-bot/agent-ros-bridge",
+    "source": "hn",
+    "popularity": 2,
+    "summary": "Agent ROS Bridge connects AI agents to real robots running ROS with decorators for auto-generated type-safe message classes and gRPC/WebSocket APIs."
+  }
+]

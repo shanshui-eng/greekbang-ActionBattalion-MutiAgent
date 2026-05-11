@@ -1,0 +1,16 @@
+{
+  "id": "github-ui-tars-desktop",
+  "title": "UI-TARS Desktop",
+  "source_url": "https://github.com/bytedance/UI-TARS-desktop",
+  "source": "github",
+  "summary": "字节跳动多模态 AI Agent 桌面端，GUI Agent + MCP 一站式方案，npx 一行启动。",
+  "tags": ["agent", "multimodal"],
+  "status": "published",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 32856,
+      "language": "TypeScript"
+    }
+  }
+}

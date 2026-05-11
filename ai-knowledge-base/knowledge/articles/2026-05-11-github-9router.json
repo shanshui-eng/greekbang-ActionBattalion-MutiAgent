@@ -1,0 +1,16 @@
+{
+  "id": "github-9router",
+  "title": "9router",
+  "source_url": "https://github.com/decolua/9router",
+  "source": "github",
+  "summary": "免费 AI 编程代理服务，聚合 40+ API 提供商（Claude/GPT/Gemini 等），支持自动故障切换和 Token 节省（RTK -40%），连接 Cursor、Cline、Copilot 等 IDE。",
+  "tags": ["toolkit", "inference"],
+  "status": "draft",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 8021,
+      "language": "JavaScript"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "github-pageindex",
+  "title": "PageIndex",
+  "source_url": "https://github.com/VectifyAI/PageIndex",
+  "source": "github",
+  "summary": "无向量库、基于推理的 RAG 系统，通过构建文档的层级树状索引，用 LLM 推理替代向量相似度搜索进行检索。在 FinanceBench 上达到 98.7% 准确率。",
+  "tags": ["rag", "framework", "llm"],
+  "status": "published",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 30599,
+      "language": "Python"
+    }
+  }
+}

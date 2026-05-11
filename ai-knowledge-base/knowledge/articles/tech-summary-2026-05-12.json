@@ -1,0 +1,216 @@
+{
+  "source": "tech-summary",
+  "skill": "tech-summary",
+  "analyzed_at": "2026-05-12T00:30:00+08:00",
+  "source_file": "github-trending-2026-05-12.json",
+  "items": [
+    {
+      "name": "Hmbown/DeepSeek-TUI",
+      "url": "https://github.com/Hmbown/DeepSeek-TUI",
+      "summary": "DeepSeek V4 终端编码 Agent，1M 上下文 + MCP + 流式推理，Claude Code 首选平替。",
+      "highlights": [
+        "周增 2.2 万星，连续两周 Trending 榜首",
+        "支持 1M token 上下文窗口和流式推理",
+        "内置 Plan/Agent/YOLO 三种模式和会话恢复"
+      ],
+      "score": 9,
+      "score_reason": "突破性工具，填补 DeepSeek 终端 Agent 空白，功能完整度达生产级，周增星数验证社区认可度",
+      "tags": ["agent", "llm", "toolkit"]
+    },
+    {
+      "name": "mattpocock/skills",
+      "url": "https://github.com/mattpocock/skills",
+      "summary": "Matt Pocock 的 Agent Skill 合集，14 个工程级技能覆盖代码审查到测试生成。",
+      "highlights": [
+        "71.6K 总星数，Skill 领域最受欢迎仓库",
+        "包含 grill-me、tdd、prd-to-plan 等实用技能",
+        "直接复用无须重写，降低 Agent 调优成本"
+      ],
+      "score": 8,
+      "score_reason": "Agent Skill 生态标杆，工程实践价值高，但属经验沉淀非技术突破",
+      "tags": ["agent", "toolkit"]
+    },
+    {
+      "name": "ruvnet/ruflo",
+      "url": "https://github.com/ruvnet/ruflo",
+      "summary": "Claude Code 多 Agent 编排平台，100+ Agent + 联邦通信 + 自学习。",
+      "highlights": [
+        "48.9K 星，支持 100+ 专业 Agent",
+        "零信任联邦通信设计独特，Agent 可跨机器协作",
+        "32 个插件覆盖代码质量到安全审计全流程"
+      ],
+      "score": 8,
+      "score_reason": "多 Agent 编排能力突出，联邦通信设计企业级，但功能膨胀学习曲线陡峭",
+      "tags": ["agent", "framework", "security"]
+    },
+    {
+      "name": "addyosmani/agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "summary": "Google Chrome 团队出品，生产级 Agent 工程技能集。",
+      "highlights": [
+        "39.3K 星，由 Chrome 核心成员维护",
+        "面向生产级工程场景，非玩具示例",
+        "直接集成到编码 Agent 工作流"
+      ],
+      "score": 8,
+      "score_reason": "作者权威性高，技能质量可靠，对 Agent 编码效率提升直接",
+      "tags": ["agent", "coding"]
+    },
+    {
+      "name": "TauricResearch/TradingAgents",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "summary": "多 Agent 金融交易框架，模拟真实交易团队分工，论文支撑。",
+      "highlights": [
+        "73.7K 星，本周最高总星数项目",
+        "架构设计清晰：分析师→研究员→交易员→风控→决策",
+        "arXiv 论文支撑，LangGraph 实现"
+      ],
+      "score": 8,
+      "score_reason": "多 Agent 协作设计精良，论文加持，但金融交易实战效果待验证",
+      "tags": ["agent", "framework", "paper"]
+    },
+    {
+      "name": "AIDC-AI/Pixelle-Video",
+      "url": "https://github.com/AIDC-AI/Pixelle-Video",
+      "summary": "AI 全自动短视频引擎，文案到成片一站式，降低制作门槛。",
+      "highlights": [
+        "15.1K 星，AI 视频赛道热门",
+        "集成脚本编写、语音合成、画面匹配全流程",
+        "输入文案即可自动出片"
+      ],
+      "score": 6,
+      "score_reason": "功能实用但赛道竞争激烈，与 Runway/Pika 相比差异化不足",
+      "tags": ["multimodal", "toolkit"]
+    },
+    {
+      "name": "VectifyAI/PageIndex",
+      "url": "https://github.com/VectifyAI/PageIndex",
+      "summary": "无向量库推理式 RAG，树搜索替代向量相似度，FinanceBench 98.7%。",
+      "highlights": [
+        "30.6K 星，RAG 领域创新方案",
+        "FinanceBench 达 98.7% 准确率",
+        "完全向量库无关，纯推理驱动检索"
+      ],
+      "score": 9,
+      "score_reason": "RAG 领域范式创新，摆脱向量库依赖，树搜索+推理效果好且有Benchmark支撑",
+      "tags": ["rag", "framework"]
+    },
+    {
+      "name": "decolua/9router",
+      "url": "https://github.com/decolua/9router",
+      "summary": "免费 AI 编程代理路由，聚合 40+ API 提供商自动故障切换。",
+      "highlights": [
+        "8K 星，解决多 API 管理痛点",
+        "支持 40+ 提供商自动故障切换",
+        "RTK 减少 40% Token 消耗"
+      ],
+      "score": 6,
+      "score_reason": "实用工具但商业模式可持续性存疑，技术壁垒不高",
+      "tags": ["inference", "toolkit"]
+    },
+    {
+      "name": "virattt/dexter",
+      "url": "https://github.com/virattt/dexter",
+      "summary": "自主金融研究 Agent，自动深度分析，企业金融垂直场景。",
+      "highlights": [
+        "25.3K 星，金融垂直 Agent",
+        "多数据源自动接入分析",
+        "面向企业金融场景"
+      ],
+      "score": 7,
+      "score_reason": "定位清晰落地价值高，但与 TradingAgents 功能重叠差异化不够",
+      "tags": ["agent", "toolkit"]
+    },
+    {
+      "name": "LearningCircuit/local-deep-research",
+      "url": "https://github.com/LearningCircuit/local-deep-research",
+      "summary": "全本地 AI 深度研究系统，单 3090 达 95% SimpleQA，隐私优先。",
+      "highlights": [
+        "7.2K 星，本地深度研究标杆",
+        "单张 RTX 3090 实现 ~95% SimpleQA",
+        "全程本地运行 + AES-256 数据加密"
+      ],
+      "score": 9,
+      "score_reason": "本地深度研究性能标杆，离线可用+隐私保护+Benchmark 数据支撑",
+      "tags": ["rag", "llm", "framework"]
+    },
+    {
+      "name": "bytedance/UI-TARS-desktop",
+      "url": "https://github.com/bytedance/UI-TARS-desktop",
+      "summary": "字节跳动多模态 AI Agent 桌面端，GUI Agent + MCP 一站式方案。",
+      "highlights": [
+        "32.9K 星，字节跳动开源力作",
+        "支持本地和远程计算机/浏览器操作",
+        "基于 UI-TARS 多模态模型，npx 一行启动"
+      ],
+      "score": 8,
+      "score_reason": "字节系多模态 Agent 重量级开源，GUI Agent 能力完整，企业背书强",
+      "tags": ["agent", "multimodal"]
+    },
+    {
+      "name": "1jehuang/jcode",
+      "url": "https://github.com/1jehuang/jcode",
+      "summary": "编码 Agent 工具集，Rust 实现，为 AI 编码助手提供基础设施。",
+      "highlights": [
+        "5.7K 星，新兴编码 Agent 工具",
+        "Rust 实现性能优先",
+        "为开发编码助手提供基础设施"
+      ],
+      "score": 7,
+      "score_reason": "编码 Agent 工具方向正确但尚早期，Rust 实现有性能优势",
+      "tags": ["agent", "toolkit"]
+    },
+    {
+      "name": "cocoindex-io/cocoindex",
+      "url": "https://github.com/cocoindex-io/cocoindex",
+      "summary": "长时任务 Agent 增量执行引擎，解决 Agent 持续运行编排问题。",
+      "highlights": [
+        "9.6K 星，Agent 基础设施方向",
+        "解决 Agent 长时运行的状态管理",
+        "Python 实现，面向 Agent 编排"
+      ],
+      "score": 7,
+      "score_reason": "Agent 持续性运行是真实痛点，方向好但知名度有待提升",
+      "tags": ["agent", "framework"]
+    },
+    {
+      "name": "InsForge/InsForge",
+      "url": "https://github.com/InsForge/InsForge",
+      "summary": "Agentic Coding 一站式后端平台，为编码 Agent 提供全栈能力。",
+      "highlights": [
+        "9.4K 星，编码 Agent 基础设施",
+        "提供数据库、认证、存储、AI 网关",
+        "TypeScript 全栈实现"
+      ],
+      "score": 7,
+      "score_reason": "编码 Agent 后端平台定位精准，但和已有方案功能重叠",
+      "tags": ["agent", "framework"]
+    },
+    {
+      "name": "PriorLabs/TabPFN",
+      "url": "https://github.com/PriorLabs/TabPFN",
+      "summary": "表格数据 Foundation Model，预训练 Transformer 替代传统 ML 流程。",
+      "highlights": [
+        "6.9K 星，表格 ML 新范式",
+        "预训练模型直接替代传统表格 ML 流程",
+        "零样本推理无需微调"
+      ],
+      "score": 7,
+      "score_reason": "表格数据零样本推理是 ML 领域创新，但实用场景尚需验证",
+      "tags": ["llm", "framework"]
+    }
+  ],
+  "trends": {
+    "common_themes": [
+      "Agent 工具链基础设施集中爆发（jcode、InsForge、cocoindex）",
+      "Agent Skill 生态走向成熟（mattpocock/skills、addyosmani/agent-skills）",
+      "金融 Agent 持续高热（TradingAgents、dexter）",
+      "本地/隐私 AI 方案需求强劲（local-deep-research）"
+    ],
+    "new_concepts": [
+      "无向量库 RAG（PageIndex）脱离向量数据库依赖",
+      "多模态 GUI Agent 桌面端（UI-TARS-desktop）"
+    ],
+    "one_liner": "本周 Agent 基础设施和工具链全面爆发，DeepSeek-TUI 和 PageIndex 分别在终端 Agent 和 RAG 范式上带来突破性创新。"
+  }
+}

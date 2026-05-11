@@ -1,0 +1,16 @@
+{
+  "id": "github-cocoindex",
+  "title": "cocoindex",
+  "source_url": "https://github.com/cocoindex-io/cocoindex",
+  "source": "github",
+  "summary": "长时任务 Agent 增量执行引擎，解决 Agent 持续运行的状态管理和编排问题。",
+  "tags": ["agent", "framework"],
+  "status": "published",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 9583,
+      "language": "Python"
+    }
+  }
+}

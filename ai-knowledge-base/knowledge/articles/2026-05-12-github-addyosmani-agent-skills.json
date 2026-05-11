@@ -1,0 +1,16 @@
+{
+  "id": "github-addyosmani-agent-skills",
+  "title": "agent-skills (addyosmani)",
+  "source_url": "https://github.com/addyosmani/agent-skills",
+  "source": "github",
+  "summary": "Google Chrome 团队出品，生产级 Agent 工程技能集。",
+  "tags": ["agent", "coding"],
+  "status": "duplicate",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 39320,
+      "language": "Shell"
+    }
+  }
+}

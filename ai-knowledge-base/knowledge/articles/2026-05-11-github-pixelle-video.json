@@ -1,0 +1,16 @@
+{
+  "id": "github-pixelle-video",
+  "title": "Pixelle-Video",
+  "source_url": "https://github.com/AIDC-AI/Pixelle-Video",
+  "source": "github",
+  "summary": "AI 全自动短视频生成引擎，输入文案即可自动生成完整短视频，集成脚本编写、语音合成、画面匹配和剪辑流程。",
+  "tags": ["multimodal", "toolkit"],
+  "status": "draft",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 15096,
+      "language": "Python"
+    }
+  }
+}

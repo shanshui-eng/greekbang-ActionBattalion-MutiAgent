@@ -1,0 +1,16 @@
+{
+  "id": "github-9router",
+  "title": "9router",
+  "source_url": "https://github.com/decolua/9router",
+  "source": "github",
+  "summary": "免费 AI 编程代理路由，聚合 40+ API 提供商自动故障切换。",
+  "tags": ["inference", "toolkit"],
+  "status": "duplicate",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 8083,
+      "language": "JavaScript"
+    }
+  }
+}

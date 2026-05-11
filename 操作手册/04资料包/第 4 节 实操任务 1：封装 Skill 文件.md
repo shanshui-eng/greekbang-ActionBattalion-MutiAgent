@@ -31,6 +31,7 @@ mkdir -p .opencode/skills/github-trending .opencode/skills/tech-summary
 - JSON结构包含：source, skill, collected_at, items数组(name, url, summary, stars, language, topics)
 ```
 **生成的代码：**
+
 ```plain
 ---
 name: github-trending
@@ -80,6 +81,10 @@ GET https://api.github.com/search/repositories?q=created:>{7天前日期}+stars:
 **理解代码：**
 
 >如果你对 SKILL.md 格式有疑问，可以让 AI 编程工具解释：“SKILL.md 的 YAML frontmatter 中 description 字段如何触发语义匹配？allowed-tools 是硬性限制还是建议？”
+
+
+
+
 
 ---
 
@@ -137,8 +142,11 @@ git commit -m "feat: add github-trending and tech-summary skill definitions"
 |包含内容|身份、职责、权限|步骤、标准、输入输出|
 |类比|岗位说明书|操作手册（SOP）|
 
-
 ---
+
+
+
+
 
 **完成！** 2 个 Skill 封装就绪，进入实操 2 跑通完整流程。
 

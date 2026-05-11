@@ -1,0 +1,16 @@
+{
+  "id": "github-insforge",
+  "title": "InsForge",
+  "source_url": "https://github.com/InsForge/InsForge",
+  "source": "github",
+  "summary": "Agentic Coding 一站式后端平台，为编码 Agent 提供数据库、认证、存储和 AI 网关。",
+  "tags": ["agent", "framework"],
+  "status": "published",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 9433,
+      "language": "TypeScript"
+    }
+  }
+}

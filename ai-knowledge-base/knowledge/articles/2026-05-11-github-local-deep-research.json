@@ -1,0 +1,16 @@
+{
+  "id": "github-local-deep-research",
+  "title": "local-deep-research",
+  "source_url": "https://github.com/LearningCircuit/local-deep-research",
+  "source": "github",
+  "summary": "全本地 AI 深度研究系统，支持本地 LLM（Ollama/llama.cpp）和云模型，集成 10+ 搜索引擎（arXiv/PubMed/Wikipedia 等），SimpleQA 达 95%，数据加密存储，无遥测。",
+  "tags": ["rag", "llm", "framework"],
+  "status": "published",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 7183,
+      "language": "Python"
+    }
+  }
+}

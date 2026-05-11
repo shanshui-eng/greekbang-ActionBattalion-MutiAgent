@@ -9,6 +9,8 @@ collector    →    analyzer    →    organizer
 本节我们来装 Matt Pocock 的第二个 skill——**prd-to-plan**——把高阶需求拆成多 Agent 可执行的任务规格。
 
 
+
+
 ## 预备知识
 
 * [老项目逆向 · 改哪里 spec 补到哪里](https://github.com/huangjia2019/sdd-in-action/blob/master/week1/advance/03-%E8%80%81%E9%A1%B9%E7%9B%AE%E9%80%86%E5%90%91%E7%AD%96%E7%95%A5.md)
@@ -57,9 +59,13 @@ ls ~/.opencode/skills/
 三个 Agent 各自知道自己要做什么，但**谁先谁后、谁触发谁、失败怎么办**都在空气里。测试时，你会发现 analyzer 在 collector 还没写完时就启动了。
 
 
+
+
 ### B 路 · SDD · 40 分钟
 
 #### 阶段 1 · Specify（10 分钟）
+
+
 
 先写一份简单设计规范，强制自己想清“协作”两个字：
 
@@ -103,7 +109,10 @@ prd-to-plan 的作用不是追问（那是 grill-me），是把高阶 PRD 展开
 多 Agent = 多契约。契约必须是规格。规格才有真相源。
 
 
+
 ## 完成清单
+
+
 
 * `specs/agents-collaboration.md`
 
@@ -111,11 +120,19 @@ prd-to-plan 的作用不是追问（那是 grill-me），是把高阶 PRD 展开
 
 * `specs/schemas/*.json`（可执行 schema）
 
-
 你也可以同时使用 prd-to-plan ，grill-me 的组合，提升规范质量。
+
+
 
 
 ## 下一节
 
 第 4 节 Skills 能力封装 —— 三个 Agent 的骨架有了。但 collector 真正的“技能”藏在 `skills/github-trending/SKILL.md` 里。下节引入 **write-a-skill**，让 AI 用 SDD 方式帮你从零聊出一份可复用 SKILL.md。这是 Week 1 的收官节，敬请期待。
 
+
+
+
+
+
+
+sub-agent的协作

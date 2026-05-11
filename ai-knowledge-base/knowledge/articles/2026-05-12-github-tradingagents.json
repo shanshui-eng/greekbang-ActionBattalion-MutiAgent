@@ -1,0 +1,16 @@
+{
+  "id": "github-tradingagents",
+  "title": "TradingAgents",
+  "source_url": "https://github.com/TauricResearch/TradingAgents",
+  "source": "github",
+  "summary": "多 Agent 金融交易框架，模拟真实交易团队分工，论文支撑。",
+  "tags": ["agent", "framework", "paper"],
+  "status": "duplicate",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 73700,
+      "language": "Python"
+    }
+  }
+}

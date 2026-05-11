@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hacker News AI 热闻精选 — 2026-05-11</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.6;
+  }
+  .container { max-width: 840px; margin: 0 auto; padding: 40px 20px; }
+  .header {
+    text-align: center; margin-bottom: 48px;
+  }
+  .header h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; }
+  .header .subtitle { color: #86868b; margin-top: 8px; font-size: 15px; }
+  .header .source-badge {
+    display: inline-block; margin-top: 12px;
+    background: #ff6600; color: #fff; padding: 4px 16px;
+    border-radius: 14px; font-size: 13px; font-weight: 600;
+  }
+  .nav-links {
+    display: flex; gap: 12px; justify-content: center; margin: 20px 0 32px;
+  }
+  .nav-links a {
+    padding: 6px 18px; border-radius: 20px; font-size: 14px;
+    text-decoration: none; font-weight: 500; transition: all .2s;
+  }
+  .nav-links .active-link {
+    background: #1d1d1f; color: #fff;
+  }
+  .nav-links .inactive-link {
+    background: #e8e8ed; color: #424245;
+  }
+  .nav-links .inactive-link:hover { background: #d2d2d6; }
+
+  .section-title {
+    font-size: 20px; font-weight: 600; margin: 40px 0 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title .count {
+    font-size: 14px; font-weight: 400; color: #86868b;
+  }
+
+  .card {
+    background: #fff; border-radius: 16px; padding: 24px;
+    margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    transition: box-shadow .2s;
+    border-left: 4px solid #ff6600;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+
+  .card-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-size: 17px; font-weight: 600; text-decoration: none; color: #1d1d1f;
+    line-height: 1.4;
+  }
+  .card-title:hover { color: #ff6600; }
+
+  .card-meta {
+    display: flex; gap: 10px; align-items: center;
+    font-size: 13px; white-space: nowrap; flex-shrink: 0;
+  }
+  .points-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    background: #fff4e6; color: #e65100; padding: 2px 10px;
+    border-radius: 10px; font-weight: 600; font-size: 13px;
+  }
+  .tag-hn { background: #fff4e6; color: #e65100; }
+  .tag-security { background: #fce4ec; color: #c62828; }
+  .tag-agent { background: #e3f2fd; color: #1565c0; }
+  .tag-toolkit { background: #fff3e0; color: #e65100; }
+  .tag-framework { background: #f3e5f5; color: #6a1b9a; }
+  .tag-llm { background: #fce4ec; color: #c62828; }
+  .tag-rag { background: #e8f5e9; color: #2e7d32; }
+
+  .card-summary { font-size: 14px; color: #424245; margin-top: 6px; }
+  .card-footer {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;
+  }
+  .meta-tag {
+    display: inline-block; padding: 2px 10px; border-radius: 10px;
+    font-size: 12px; font-weight: 500;
+  }
+
+  .summary-table {
+    background: #fff; border-radius: 16px; padding: 24px;
+    margin: 40px 0; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  .summary-table table { width: 100%; border-collapse: collapse; }
+  .summary-table th, .summary-table td {
+    text-align: left; padding: 10px 8px; border-bottom: 1px solid #eee;
+    font-size: 13px;
+  }
+  .summary-table th { color: #86868b; font-weight: 500; font-size: 12px; }
+  .summary-table tr:last-child td { border-bottom: 0; }
+  .summary-table .rank { color: #86868b; font-size: 12px; width: 28px; }
+
+  .keyword-bar {
+    display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0;
+  }
+  .keyword {
+    background: #fff; border-radius: 20px; padding: 6px 16px;
+    font-size: 13px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  .keyword .kw-count { color: #86868b; font-size: 12px; }
+
+  .footer {
+    text-align: center; padding: 32px 0; color: #86868b; font-size: 13px;
+  }
+  @media (max-width: 600px) {
+    .card-header { flex-direction: column; gap: 8px; }
+    .card-meta { align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Hacker News 热闻精选</h1>
+    <div class="subtitle">2026 年 5 月 11 日 · HN Algolia API 搜索 &quot;AI LLM agent&quot;</div>
+    <span class="source-badge">🔥 Hacker News</span>
+    <div class="nav-links">
+      <a href="index.html" class="inactive-link">📋 GitHub 周报</a>
+      <a href="hn-digest-2026-05-11.html" class="active-link">💬 HN 热闻</a>
+    </div>
+  </div>
+
+  <!-- 热词 -->
+  <div class="keyword-bar">
+    <span class="keyword">🤖 agent <span class="kw-count">×8</span></span>
+    <span class="keyword">🔒 security <span class="kw-count">×3</span></span>
+    <span class="keyword">🧠 LLM <span class="kw-count">×6</span></span>
+    <span class="keyword">🛠️ sandbox <span class="kw-count">×2</span></span>
+    <span class="keyword">📊 benchmark <span class="kw-count">×1</span></span>
+    <span class="keyword">🤖 ROS/robot <span class="kw-count">×1</span></span>
+  </div>
+
+  <div class="section-title">
+    <span>💬 热门讨论</span>
+    <span class="count">(按 points 降序)</span>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://news.ycombinator.com/item?id=46917886" target="_blank">
+        1. Tell HN: I'm a PM at a big system of record SaaS. We're cooked
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 103</span>
+        <span>💬 46</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      资深 SaaS 产品经理的自白：AI 初创公司不是威胁，云厂商和 AI 实验室（如 OpenAI）通过 AI Agent 和 LLM 平台争抢 SaaS 利润才是真正的危机。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-agent">agent</span>
+      <span class="meta-tag tag-llm">llm</span>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://news.ycombinator.com/item?id=46699324" target="_blank">
+        2. Ask HN: Why are so many rolling out their own AI/LLM agent sandboxing solution?
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 32</span>
+        <span>💬 18</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      大量开发者用 Claude Code 等编码 Agent 时都在自建沙箱（Docker/VM/firejail），现有方案缺什么？社区讨论 Agent 安全隔离的最佳实践。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-agent">agent</span>
+      <span class="meta-tag tag-security">security</span>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://news.ycombinator.com/item?id=46431201" target="_blank">
+        3. OSSAIX: A curated directory of open-source AI projects
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 12</span>
+        <span>💬 2</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      开源 AI 项目目录 OSSAIX，分类整理 LLM、RAG/Agent、本地 AI、图像/音频/视频等领域的优质项目，帮助开发者快速发现工具。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-toolkit">toolkit</span>
+      <span class="meta-tag tag-rag">rag</span>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/Agastya910/agentarmor" target="_blank">
+        4. AgentArmor: 开源 8 层 AI Agent 安全框架
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 10</span>
+        <span>💬 6</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      为任意 Agent 架构提供 8 层安全防护：提示注入检测、加密、操作风险评分、PII 脱敏、双向认证等。已通过 OWASP ASI 全部 10 项风险测试。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-security">security</span>
+      <span class="meta-tag tag-framework">framework</span>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/IncredibleDevHQ/agent-panel" target="_blank">
+        5. Agentpanel: Rust 实现的通用 LLM API 网关
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 9</span>
+        <span>💬 4</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      Rust 构建的 LLM/AI Agent 可观测性平台，支持 100+ LLM（GPT-4o/Gemini/Claude/Mistral 等），优化控制流、Token 用量和正确性。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-toolkit">toolkit</span>
+      <span class="meta-tag tag-llm">llm</span>
+    </div>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://themirrorai.com" target="_blank">
+        6. Mirror AI: 不止聊天，能动手的 LLM Agent
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 5</span>
+        <span>💬 4</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      跨平台桌面 Agent，不只能聊天，还能执行终端命令、管理文件、调用 API、发邮件、查数据库。本地运行，支持 OpenAI/Claude/Ollama 等。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-agent">agent</span>
+      <span class="meta-tag tag-toolkit">toolkit</span>
+    </div>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/hello-tmst/graphorm" target="_blank">
+        7. GraphORM: AI Agent 长期记忆的图数据库 ORM
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 5</span>
+        <span>💬 6</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      面向 RedisGraph/FalkorDB 的类型安全 Python ORM，专为 AI Agent 的图结构长期记忆存储设计，也适用于网络爬虫和社交网络。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-framework">framework</span>
+      <span class="meta-tag tag-rag">rag</span>
+    </div>
+  </div>
+
+  <!-- Card 8 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://biel.ai/blog/optimizing-docs-for-ai-agents-complete-guide" target="_blank">
+        8. 优化文档以适配 LLM 和 AI Agent 的实用指南
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 4</span>
+        <span>💬 0</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      如何结构化技术文档，让 LLM 和 AI Agent 更好地解析和使用内容。涵盖 AI SEO、结构化数据和人工要素。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-llm">llm</span>
+      <span class="meta-tag tag-agent">agent</span>
+    </div>
+  </div>
+
+  <!-- Card 9 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://the-agent-company.com/" target="_blank">
+        9. Benchmarking LLM Agents on Consequential Real World Tasks
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 3</span>
+        <span>💬 0</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      可本地运行的 LLM Agent 基准测试，评估 Agent 在真实世界任务上的表现，提供标准化评估框架。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-agent">agent</span>
+      <span class="meta-tag tag-framework">framework</span>
+    </div>
+  </div>
+
+  <!-- Card 10 -->
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/webthree549-bot/agent-ros-bridge" target="_blank">
+        10. Universal ROS bridge for AI agents – 用 LLM 控制机器人
+      </a>
+      <div class="card-meta">
+        <span class="points-badge">⬆ 2</span>
+        <span>💬 1</span>
+      </div>
+    </div>
+    <div class="card-summary">
+      Agent ROS Bridge 连接 AI Agent 与真实 ROS 机器人。一行装饰器将 Python 函数转为 ROS 动作/服务/话题，内置 gRPC + WebSocket API。
+    </div>
+    <div class="card-footer">
+      <span class="meta-tag tag-agent">agent</span>
+      <span class="meta-tag tag-toolkit">toolkit</span>
+    </div>
+  </div>
+
+  <!-- 总结表 -->
+  <div class="summary-table">
+    <h3 style="margin-bottom: 16px; font-size: 18px;">📊 本周 HN 话题分布</h3>
+    <table>
+      <thead>
+        <tr>
+          <th class="rank">#</th>
+          <th>话题</th>
+          <th>Points</th>
+          <th>类型</th>
+          <th>关注点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>SaaS vs AI Agent 威胁</td><td>103</td><td>讨论</td><td>行业洞察</td></tr>
+        <tr><td class="rank">2</td><td>Agent 沙箱方案</td><td>32</td><td>讨论</td><td>安全隔离</td></tr>
+        <tr><td class="rank">3</td><td>OSS 项目目录</td><td>12</td><td>Show HN</td><td>资源聚合</td></tr>
+        <tr><td class="rank">4</td><td>AgentArmor 安全框架</td><td>10</td><td>Show HN</td><td>Agent 安全</td></tr>
+        <tr><td class="rank">5</td><td>AgentPanel API 网关</td><td>9</td><td>Show HN</td><td>LLM 路由</td></tr>
+        <tr><td class="rank">6</td><td>Mirror AI 桌面 Agent</td><td>5</td><td>Show HN</td><td>本地执行</td></tr>
+        <tr><td class="rank">7</td><td>GraphORM 图数据库</td><td>5</td><td>Show HN</td><td>Agent 记忆</td></tr>
+        <tr><td class="rank">8</td><td>文档优化指南</td><td>4</td><td>文章</td><td>最佳实践</td></tr>
+        <tr><td class="rank">9</td><td>Agent 基准测试</td><td>3</td><td>Show HN</td><td>评估框架</td></tr>
+        <tr><td class="rank">10</td><td>ROS Agent 桥接</td><td>2</td><td>Show HN</td><td>机器人</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 关键洞察 -->
+  <div class="summary-table" style="background: #fff; border-radius: 16px;">
+    <h3 style="margin-bottom: 16px; font-size: 18px;">🔍 本周关键洞察</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="background: #fff4e6; border-radius: 12px; padding: 16px;">
+        <strong>🏢 行业格局</strong>
+        <p style="font-size: 14px; color: #424245; margin-top: 4px;">SaaS PM 的自白引发热议（103 分），AI Agent 对传统 SaaS 的颠覆已从"会不会"变成"什么时候"。</p>
+      </div>
+      <div style="background: #e3f2fd; border-radius: 12px; padding: 16px;">
+        <strong>🔒 Agent 安全成为焦点</strong>
+        <p style="font-size: 14px; color: #424245; margin-top: 4px;">沙箱方案讨论（32 分）+ AgentArmor 框架（10 分），开发者对 Agent 安全隔离的需求正在爆发。</p>
+      </div>
+      <div style="background: #e8f5e9; border-radius: 12px; padding: 16px;">
+        <strong>🧠 Agent 基础设施趋于成熟</strong>
+        <p style="font-size: 14px; color: #424245; margin-top: 4px;">从 API 网关（AgentPanel）到长期记忆（GraphORM）再到基准测试，Agent 开发的基础设施正在快速完善。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>由 AI 知识库助手自动采集 · 数据来源: HN Algolia API</p>
+    <p style="margin-top: 4px;">
+      <a href="index.html" style="color: #ff6600;">← 查看 GitHub 周报</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

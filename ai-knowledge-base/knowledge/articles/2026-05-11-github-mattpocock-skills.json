@@ -1,0 +1,16 @@
+{
+  "id": "github-mattpocock-skills",
+  "title": "skills (mattpocock)",
+  "source_url": "https://github.com/mattpocock/skills",
+  "source": "github",
+  "summary": "TypeScript 专家 Matt Pocock 分享的 AI Agent 技能集合，包含 14 个可直接用于 Claude Code 等 Agent 的 Skill 文件，覆盖代码审查、测试生成、UI 开发等工程场景。",
+  "tags": ["agent", "toolkit"],
+  "status": "published",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 71396,
+      "language": "Shell"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "github-addyosmani-agent-skills",
+  "title": "agent-skills (addyosmani)",
+  "source_url": "https://github.com/addyosmani/agent-skills",
+  "source": "github",
+  "summary": "Google Chrome 工程师 Addy Osmani 发布的 AI Agent 技能集合，面向生产级工程场景，提供可复用的 Agent 指令和工作流模板。",
+  "tags": ["agent", "toolkit", "coding"],
+  "status": "published",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 39288,
+      "language": "Shell"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "github-deepseek-tui",
+  "title": "DeepSeek-TUI",
+  "source_url": "https://github.com/Hmbown/DeepSeek-TUI",
+  "source": "github",
+  "summary": "DeepSeek V4 的终端编码 Agent，Rust 实现，支持 100 万 token 上下文窗口、流式推理、自动模型选择、多 Provider（Ollama/vLLM/OpenAI 兼容）、技能系统、MCP 协议接入。内置三种模式（Plan/Agent/YOLO）和会话恢复功能。",
+  "tags": ["agent", "llm", "toolkit"],
+  "status": "published",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 24964,
+      "language": "Rust"
+    }
+  }
+}

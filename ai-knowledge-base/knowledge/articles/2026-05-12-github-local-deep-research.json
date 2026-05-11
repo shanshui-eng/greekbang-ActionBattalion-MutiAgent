@@ -1,0 +1,16 @@
+{
+  "id": "github-local-deep-research",
+  "title": "local-deep-research",
+  "source_url": "https://github.com/LearningCircuit/local-deep-research",
+  "source": "github",
+  "summary": "全本地 AI 深度研究系统，单 3090 达 95% SimpleQA，隐私优先。",
+  "tags": ["rag", "llm", "framework"],
+  "status": "duplicate",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 7194,
+      "language": "Python"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "github-mattpocock-skills",
+  "title": "skills (mattpocock)",
+  "source_url": "https://github.com/mattpocock/skills",
+  "source": "github",
+  "summary": "Matt Pocock 的 Agent Skill 合集，14 个工程级技能覆盖代码审查到测试生成。",
+  "tags": ["agent", "toolkit"],
+  "status": "duplicate",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 71634,
+      "language": "Shell"
+    }
+  }
+}

@@ -16,8 +16,8 @@ git init
 mkdir -p .opencode/agents .opencode/skills knowledge/raw knowledge/articles
 ```
 
-
 ![图片](第 2 节 实操任务1：为知识库项目编写 AGENTS.md/1.png)
+
 
 
 ---
@@ -92,6 +92,7 @@ ai-knowledge-base/
 ├── pipeline/                  — 自动化流水线（Week 2）
 ├── workflows/                 — LangGraph 工作流（Week 3）
 └── openclaw/                  — OpenClaw 部署配置（Week 4）
+
 ```
 
 ## 内容规范
@@ -104,7 +105,7 @@ ai-knowledge-base/
 
 每条知识以 JSON 文件存储在 `knowledge/articles/` 目录下：
 
-```json
+​```json
 {
   "id": "2026-03-01-github-openclaw",
   "title": "OpenClaw: 开源 AI Agent 运行时",
@@ -152,7 +153,7 @@ ai-knowledge-base/
 
 启动 OpenCode，验证它是否自动读取了 AGENTS.md：
 
-```plain
+​```plain
 cd ~/ai-knowledge-base
 opencode
 ```

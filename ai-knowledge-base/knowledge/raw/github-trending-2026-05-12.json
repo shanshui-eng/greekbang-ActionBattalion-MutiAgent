@@ -1,0 +1,127 @@
+﻿{
+  "source": "github-trending",
+  "skill": "github-trending",
+  "collected_at": "2026-05-12T00:00:00+08:00",
+  "items": [
+    {
+      "name": "Hmbown/DeepSeek-TUI",
+      "url": "https://github.com/Hmbown/DeepSeek-TUI",
+      "summary": "DeepSeek 模型的终端编码 Agent，Rust 实现，因 1M token 上下文窗口和完整工具链而成为 Claude Code 的热门平替。",
+      "stars": 25034,
+      "language": "Rust",
+      "topics": ["ai", "llm", "agent"]
+    },
+    {
+      "name": "mattpocock/skills",
+      "url": "https://github.com/mattpocock/skills",
+      "summary": "TypeScript 专家 Matt Pocock 的 Agent Skill 集合，14 个可直接复用的工程级技能，覆盖代码审查到测试生成。",
+      "stars": 71634,
+      "language": "Shell",
+      "topics": ["agent", "toolkit"]
+    },
+    {
+      "name": "ruvnet/ruflo",
+      "url": "https://github.com/ruvnet/ruflo",
+      "summary": "Claude Code 的多 Agent 编排平台，100+ 专业 Agent 和联邦通信能力，企业级多 Agent 协作首选方案。",
+      "stars": 48948,
+      "language": "TypeScript",
+      "topics": ["agent", "framework"]
+    },
+    {
+      "name": "addyosmani/agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "summary": "Google Chrome 团队发布的 Agent 工程技能集，质量可靠，可直接用于优化 AI 编码助手。",
+      "stars": 39320,
+      "language": "Shell",
+      "topics": ["agent", "coding"]
+    },
+    {
+      "name": "TauricResearch/TradingAgents",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "summary": "多 Agent LLM 金融交易框架，模拟真实交易团队分工（分析师→研究员→交易员→风控），架构设计典范。",
+      "stars": 73700,
+      "language": "Python",
+      "topics": ["agent", "framework"]
+    },
+    {
+      "name": "AIDC-AI/Pixelle-Video",
+      "url": "https://github.com/AIDC-AI/Pixelle-Video",
+      "summary": "AI 全自动短视频生成引擎，输入文案即可出片，集成脚本编写到剪辑的完整流程。",
+      "stars": 15113,
+      "language": "Python",
+      "topics": ["multimodal", "toolkit"]
+    },
+    {
+      "name": "VectifyAI/PageIndex",
+      "url": "https://github.com/VectifyAI/PageIndex",
+      "summary": "无向量库的推理式 RAG 系统，用树搜索替代向量相似度，FinanceBench 达 98.7% 准确率。",
+      "stars": 30612,
+      "language": "Python",
+      "topics": ["rag", "framework"]
+    },
+    {
+      "name": "decolua/9router",
+      "url": "https://github.com/decolua/9router",
+      "summary": "免费 AI 编程代理路由服务，聚合 40+ API 提供商实现自动故障切换和 Token 节省。",
+      "stars": 8083,
+      "language": "JavaScript",
+      "topics": ["inference", "toolkit"]
+    },
+    {
+      "name": "virattt/dexter",
+      "url": "https://github.com/virattt/dexter",
+      "summary": "自主金融研究 Agent，自动执行深度金融分析，企业金融场景的垂直 Agent 实用方案。",
+      "stars": 25261,
+      "language": "TypeScript",
+      "topics": ["agent", "toolkit"]
+    },
+    {
+      "name": "LearningCircuit/local-deep-research",
+      "url": "https://github.com/LearningCircuit/local-deep-research",
+      "summary": "全本地 AI 深度研究系统，单张 3090 达 ~95% SimpleQA，隐私优先全程本地加密运行。",
+      "stars": 7194,
+      "language": "Python",
+      "topics": ["rag", "llm"]
+    },
+    {
+      "name": "bytedance/UI-TARS-desktop",
+      "url": "https://github.com/bytedance/UI-TARS-desktop",
+      "summary": "字节跳动开源的多模态 AI Agent 桌面端，连接前沿 AI 模型与 Agent 基础设施的一站式方案。",
+      "stars": 32856,
+      "language": "TypeScript",
+      "topics": ["agent", "multimodal"]
+    },
+    {
+      "name": "1jehuang/jcode",
+      "url": "https://github.com/1jehuang/jcode",
+      "summary": "编码 Agent 工具集（Coding Agent Harness），为开发 AI 编码助手提供基础设施支持。",
+      "stars": 5733,
+      "language": "Rust",
+      "topics": ["agent", "toolkit"]
+    },
+    {
+      "name": "cocoindex-io/cocoindex",
+      "url": "https://github.com/cocoindex-io/cocoindex",
+      "summary": "长时任务 Agent 的增量执行引擎，解决 Agent 持续运行中的状态管理和任务编排问题。",
+      "stars": 9583,
+      "language": "Python",
+      "topics": ["agent", "framework"]
+    },
+    {
+      "name": "InsForge/InsForge",
+      "url": "https://github.com/InsForge/InsForge",
+      "summary": "Agentic Coding 的一站式后端平台，为编码 Agent 提供数据库、认证、存储和 AI 网关。",
+      "stars": 9433,
+      "language": "TypeScript",
+      "topics": ["agent", "framework"]
+    },
+    {
+      "name": "PriorLabs/TabPFN",
+      "url": "https://github.com/PriorLabs/TabPFN",
+      "summary": "表格数据的 Foundation Model，用预训练 Transformer 替代传统 ML 流程处理结构化数据。",
+      "stars": 6946,
+      "language": "Python",
+      "topics": ["llm", "framework"]
+    }
+  ]
+}

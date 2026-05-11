@@ -27,6 +27,8 @@ ls ~/.opencode/skills/
 产出 `skills/github-trending/SKILL.md`，让任何 AI agent 执行“抓 GitHub Trending 并过滤 AI 相关”。
 
 
+
+
 ## 双路并行
 
 这个双路并行的设计，是为了比较自己和 AI 聊和有 SDD 思想/工具做指导的差异。

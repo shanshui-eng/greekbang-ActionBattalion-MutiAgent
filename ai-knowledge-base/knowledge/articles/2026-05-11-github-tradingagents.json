@@ -1,0 +1,16 @@
+{
+  "id": "github-tradingagents",
+  "title": "TradingAgents",
+  "source_url": "https://github.com/TauricResearch/TradingAgents",
+  "source": "github",
+  "summary": "基于 LangGraph 的多 Agent 金融交易框架，模拟真实交易公司的人分工：基本面分析师、情绪分析师、技术分析师、研究员（多空辩论）、交易员、风控团队和投资组合经理。",
+  "tags": ["agent", "framework", "paper"],
+  "status": "published",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 73655,
+      "language": "Python"
+    }
+  }
+}

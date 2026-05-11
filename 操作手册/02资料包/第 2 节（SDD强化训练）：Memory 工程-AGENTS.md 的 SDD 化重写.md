@@ -8,6 +8,8 @@
 
 本节装 **grill-me**（6 行 Markdown · 来自 Matt Pocock 的开源技能集）。装完，AI 会变成面试官，一条条拷问你的 AGENTS.md 里的模糊点。
 
+ 
+
 
 ## 环境准备
 
@@ -23,7 +25,6 @@ ls ~/.claude/skills/grill-me/SKILL.md
 npx skills@latest add mattpocock/skills/grill-me -a opencode
 ls ~/.opencode/skills/grill-me/SKILL.md
 ```
-
 
 ![图片](第 2 节（SDD强化训练）：Memory 工程-AGENTS.md 的 SDD 化重写/2.png)
 ![图片](第 2 节（SDD强化训练）：Memory 工程-AGENTS.md 的 SDD 化重写/3.png)
@@ -50,6 +51,11 @@ ls ~/.opencode/skills/grill-me/SKILL.md
 Python + TypeScript 双技术栈。
 ```
 AI 给你 15 行规范，看起来规整。但下周同事抱怨“AI 生成的 Python 行宽混乱”时，你发现规范里根本没写行宽。A 路输在**没想到的就漏了**。
+
+
+
+
+
 ### B 路 · SDD + grill-me · 25 分钟
 
 #### 阶段 1 · Specify（5 分钟）
@@ -75,6 +81,8 @@ AI 给你 15 行规范，看起来规整。但下周同事抱怨“AI 生成的 
 - CI 上跑 lint + 单测
 ```
 故意留粗糙——这是给 grill-me 下饭的。
+
+
 
 #### 阶段 2 · Clarify（15 分钟）
 
@@ -105,6 +113,10 @@ AI 给你 15 行规范，看起来规整。但下周同事抱怨“AI 生成的 
 |改需求成本|全重写|改 spec 一条即可|
 
 grill-me 的价值不是直接帮你写，是帮你发现你没想到的。
+
+
+
+
 
 ## 完成清单
 

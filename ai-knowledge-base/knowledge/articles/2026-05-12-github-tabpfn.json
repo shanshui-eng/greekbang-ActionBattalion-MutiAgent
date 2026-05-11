@@ -1,0 +1,16 @@
+{
+  "id": "github-tabpfn",
+  "title": "TabPFN",
+  "source_url": "https://github.com/PriorLabs/TabPFN",
+  "source": "github",
+  "summary": "表格数据 Foundation Model，预训练 Transformer 替代传统 ML 流程，零样本推理。",
+  "tags": ["llm", "framework"],
+  "status": "published",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 6946,
+      "language": "Python"
+    }
+  }
+}

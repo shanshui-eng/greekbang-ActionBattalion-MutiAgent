@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 开源周报 — 2026-05-11</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.6;
+  }
+  .container { max-width: 840px; margin: 0 auto; padding: 40px 20px; }
+  .header { text-align: center; margin-bottom: 48px; }
+  .header h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; }
+  .header p { color: #86868b; margin-top: 8px; font-size: 15px; }
+  .section-title {
+    font-size: 20px; font-weight: 600; margin: 40px 0 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title .badge {
+    font-size: 13px; padding: 2px 12px; border-radius: 12px;
+    color: #fff; font-weight: 500;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    transition: box-shadow .2s;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  .card-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 18px; font-weight: 600; text-decoration: none; color: #1d1d1f;
+  }
+  .card-title:hover { color: #0066cc; }
+  .card-meta {
+    display: flex; gap: 12px; align-items: center;
+    font-size: 13px; color: #86868b; white-space: nowrap;
+  }
+  .meta-tag {
+    display: inline-block; padding: 2px 10px; border-radius: 10px;
+    font-size: 12px; font-weight: 500;
+  }
+  .card-summary { font-size: 15px; color: #424245; margin-bottom: 10px; }
+  .card-highlight {
+    background: #f5f5f7; border-radius: 10px; padding: 12px 16px;
+    font-size: 14px; border-left: 3px solid;
+    margin-bottom: 10px;
+  }
+  .card-score {
+    font-size: 13px; color: #86868b;
+  }
+  .card-score strong { font-weight: 600; }
+
+  /* 分值配色 */
+  .badge-9 { background: #d32f2f; }
+  .badge-8 { background: #e65100; }
+  .badge-7 { background: #f9a825; color: #1d1d1f !important; }
+  .badge-6 { background: #7b8c8d; }
+
+  .tag-agent { background: #e3f2fd; color: #1565c0; }
+  .tag-rag { background: #e8f5e9; color: #2e7d32; }
+  .tag-llm { background: #fce4ec; color: #c62828; }
+  .tag-framework { background: #f3e5f5; color: #6a1b9a; }
+  .tag-toolkit { background: #fff3e0; color: #e65100; }
+  .tag-multimodal { background: #e0f7fa; color: #00695c; }
+  .tag-paper { background: #fbe9e7; color: #bf360c; }
+  .tag-security { background: #e8eaf6; color: #283593; }
+  .tag-coding { background: #f1f8e9; color: #558b2f; }
+  .tag-inference { background: #fce4ec; color: #880e4f; }
+
+  .score-9 { border-left-color: #d32f2f; }
+  .score-8 { border-left-color: #e65100; }
+  .score-7 { border-left-color: #f9a825; }
+  .score-6 { border-left-color: #7b8c8d; }
+
+  .summary-table {
+    background: #fff; border-radius: 16px; padding: 24px;
+    margin: 40px 0; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  .summary-table table { width: 100%; border-collapse: collapse; }
+  .summary-table th, .summary-table td {
+    text-align: left; padding: 12px 8px; border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+  .summary-table th { color: #86868b; font-weight: 500; font-size: 13px; }
+  .summary-table tr:last-child td { border-bottom: 0; }
+  .rec-section { margin: 40px 0; }
+  .rec-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .rec-card {
+    background: #fff; border-radius: 12px; padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  .rec-card h4 { font-size: 14px; margin-bottom: 6px; }
+  .rec-card p { font-size: 13px; color: #424245; }
+  .footer {
+    text-align: center; padding: 32px 0; color: #86868b; font-size: 13px;
+  }
+  @media (max-width: 600px) {
+    .rec-grid { grid-template-columns: 1fr; }
+    .card-header { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>AI 开源周报</h1>
+    <p>2026 年 5 月 11 日 · 本周 GitHub Trending AI/LLM/Agent 精选 Top 10</p>
+  </div>
+
+  <!-- ============ 改变格局 ============ -->
+  <div class="section-title">
+    <span>🔥 改变格局</span>
+    <span class="badge badge-9">9/10</span>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/Hmbown/DeepSeek-TUI" target="_blank">1. DeepSeek-TUI</a>
+      <div class="card-meta">
+        <span>⭐ 24.9K</span>
+        <span>🦀 Rust</span>
+        <span class="meta-tag tag-agent">agent</span>
+        <span class="meta-tag tag-llm">llm</span>
+        <span class="meta-tag tag-toolkit">toolkit</span>
+      </div>
+    </div>
+    <div class="card-summary">DeepSeek V4 的终端编码 Agent，Rust 实现，支持 100 万 token 上下文窗口、流式推理、自动模型选择、多 Provider（Ollama/vLLM/OpenAI 兼容）、技能系统、MCP 协议接入。内置三种模式（Plan/Agent/YOLO）和会话恢复功能。</div>
+    <div class="card-highlight score-9"><strong>亮点：</strong>周增 2.2 万星，DeepSeek 生态最成熟的终端 Agent 工具，工具链完整度堪比 Claude Code 的平替方案。</div>
+    <div class="card-score"><strong>评分理由：</strong>突破性工具，填补了 DeepSeek 模型在终端 Agent 场景的空白，功能完整度已达生产级水平。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/VectifyAI/PageIndex" target="_blank">2. PageIndex</a>
+      <div class="card-meta">
+        <span>⭐ 30.6K</span>
+        <span>🐍 Python</span>
+        <span class="meta-tag tag-rag">rag</span>
+        <span class="meta-tag tag-framework">framework</span>
+      </div>
+    </div>
+    <div class="card-summary">无向量库、基于推理的 RAG 系统，通过构建文档的层级树状索引，用 LLM 推理替代向量相似度搜索进行检索。在 FinanceBench 上达到 98.7% 准确率。</div>
+    <div class="card-highlight score-9"><strong>亮点：</strong>颠覆传统 Vector RAG 范式，用推理替代相似度搜索，理论优雅且效果惊艳（98.7% 准确率）。</div>
+    <div class="card-score"><strong>评分理由：</strong>RAG 领域的重要创新，摆脱了向量数据库依赖，用树搜索+推理实现更精准的检索，可能是下一代 RAG 架构方向。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/LearningCircuit/local-deep-research" target="_blank">3. local-deep-research</a>
+      <div class="card-meta">
+        <span>⭐ 7.2K</span>
+        <span>🐍 Python</span>
+        <span class="meta-tag tag-rag">rag</span>
+        <span class="meta-tag tag-framework">framework</span>
+        <span class="meta-tag tag-llm">llm</span>
+      </div>
+    </div>
+    <div class="card-summary">全本地 AI 深度研究系统，支持本地 LLM（Ollama/llama.cpp）和云模型，集成 10+ 搜索引擎（arXiv/PubMed/Wikipedia 等），SimpleQA 达 ~95%，数据 AES-256 加密，零遥测。</div>
+    <div class="card-highlight score-9"><strong>亮点：</strong>首个在单张 RTX 3090 上实现 ~95% SimpleQA 的开源项目，隐私优先（全程本地运行 + 数据加密）。</div>
+    <div class="card-score"><strong>评分理由：</strong>本地深度研究领域的标杆项目，性能优秀且完全离线可运行，对隐私敏感用户和研究机构价值巨大。</div>
+  </div>
+
+  <!-- ============ 直接有帮助 ============ -->
+  <div class="section-title">
+    <span>👍 直接有帮助</span>
+    <span class="badge badge-8">7-8/10</span>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/mattpocock/skills" target="_blank">4. skills (mattpocock)</a>
+      <div class="card-meta">
+        <span>⭐ 71.4K</span>
+        <span>🐚 Shell</span>
+        <span class="meta-tag tag-agent">agent</span>
+        <span class="meta-tag tag-toolkit">toolkit</span>
+      </div>
+    </div>
+    <div class="card-summary">TypeScript 专家 Matt Pocock 分享的 AI Agent 技能集合，包含 14 个可直接用于 Claude Code 等 Agent 的 Skill 文件，覆盖代码审查、测试生成、UI 开发等工程场景。</div>
+    <div class="card-highlight score-8"><strong>亮点：</strong>周增 1.27 万星，目前最受欢迎的 Agent Skills 仓库之一，展示了 Skill 生态的最佳实践。</div>
+    <div class="card-score"><strong>评分：8/10</strong> — 对 Agent 工程实践有直接指导价值，但更多是经验分享而非突破性技术。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/ruvnet/ruflo" target="_blank">5. ruflo</a>
+      <div class="card-meta">
+        <span>⭐ 48.9K</span>
+        <span>🦕 TypeScript</span>
+        <span class="meta-tag tag-agent">agent</span>
+        <span class="meta-tag tag-framework">framework</span>
+        <span class="meta-tag tag-security">security</span>
+      </div>
+    </div>
+    <div class="card-summary">面向 Claude Code 的多 Agent 编排平台，支持 100+ 专业 Agent、HNSW 向量记忆、零信任联邦通信、MCP 协议接入。提供 32 个插件覆盖从代码质量到安全审计的全流程。</div>
+    <div class="card-highlight score-8"><strong>亮点：</strong>48.9K 星，功能极其丰富（100+ Agents、联邦通信、自学习），但复杂度高，学习曲线陡峭。</div>
+    <div class="card-score"><strong>评分：8/10</strong> — 多 Agent 编排能力突出，联邦通信设计独特，适合企业级场景。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/addyosmani/agent-skills" target="_blank">6. agent-skills (addyosmani)</a>
+      <div class="card-meta">
+        <span>⭐ 39.3K</span>
+        <span>🐚 Shell</span>
+        <span class="meta-tag tag-agent">agent</span>
+        <span class="meta-tag tag-coding">coding</span>
+      </div>
+    </div>
+    <div class="card-summary">Google Chrome 工程师 Addy Osmani 发布的 AI Agent 技能集合，面向生产级工程场景，提供可复用的 Agent 指令和工作流模板。</div>
+    <div class="card-highlight score-8"><strong>亮点：</strong>由 Chrome 团队核心成员维护，质量有保障，直接可用于日常编码 Agent 优化。</div>
+    <div class="card-score"><strong>评分：8/10</strong> — 作者权威性高，技能质量可靠，对提升 Agent 代码质量有直接帮助。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/TauricResearch/TradingAgents" target="_blank">7. TradingAgents</a>
+      <div class="card-meta">
+        <span>⭐ 73.7K</span>
+        <span>🐍 Python</span>
+        <span class="meta-tag tag-agent">agent</span>
+        <span class="meta-tag tag-framework">framework</span>
+        <span class="meta-tag tag-paper">paper</span>
+      </div>
+    </div>
+    <div class="card-summary">基于 LangGraph 的多 Agent 金融交易框架，模拟真实交易公司人员分工：基本面分析师、情绪分析师、技术分析师、研究员（多空辩论）、交易员、风控团队和投资组合经理。</div>
+    <div class="card-highlight score-8"><strong>亮点：</strong>73.7K 星，多 Agent 协作应用于金融交易的优秀范例，架构设计清晰（分析师→研究员→交易员→风控→决策）。</div>
+    <div class="card-score"><strong>评分：8/10</strong> — 多 Agent 协作设计精良，论文支撑，但在真实交易中的效果仍需验证。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/virattt/dexter" target="_blank">8. dexter</a>
+      <div class="card-meta">
+        <span>⭐ 25.3K</span>
+        <span>🦕 TypeScript</span>
+        <span class="meta-tag tag-agent">agent</span>
+        <span class="meta-tag tag-toolkit">toolkit</span>
+      </div>
+    </div>
+    <div class="card-summary">自主金融研究 Agent，自动执行深度金融分析，支持多数据源接入和报告生成。</div>
+    <div class="card-highlight score-7"><strong>亮点：</strong>金融领域垂直 Agent，自动化深度研究的能力对企业金融分析有实用价值。</div>
+    <div class="card-score"><strong>评分：7/10</strong> — 定位清晰，金融领域落地价值高，但与 TradingAgents 功能有所重叠。</div>
+  </div>
+
+  <!-- ============ 值得了解 ============ -->
+  <div class="section-title">
+    <span>👀 值得了解</span>
+    <span class="badge badge-6">5-6/10</span>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/AIDC-AI/Pixelle-Video" target="_blank">9. Pixelle-Video</a>
+      <div class="card-meta">
+        <span>⭐ 15.1K</span>
+        <span>🐍 Python</span>
+        <span class="meta-tag tag-multimodal">multimodal</span>
+        <span class="meta-tag tag-toolkit">toolkit</span>
+      </div>
+    </div>
+    <div class="card-summary">AI 全自动短视频生成引擎，输入文案即可自动生成完整短视频，集成脚本编写、语音合成、画面匹配和剪辑流程。</div>
+    <div class="card-highlight score-6"><strong>亮点：</strong>AI 视频生成赛道热门项目，全自动化流程降低了短视频制作门槛。</div>
+    <div class="card-score"><strong>评分：6/10</strong> — 功能实用，但竞争激烈，与同类产品相比暂无突出优势。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-title" href="https://github.com/decolua/9router" target="_blank">10. 9router</a>
+      <div class="card-meta">
+        <span>⭐ 8.0K</span>
+        <span>🟨 JavaScript</span>
+        <span class="meta-tag tag-toolkit">toolkit</span>
+        <span class="meta-tag tag-inference">inference</span>
+      </div>
+    </div>
+    <div class="card-summary">免费 AI 编程代理服务，聚合 40+ API 提供商（Claude/GPT/Gemini 等），支持自动故障切换和 Token 节省（RTK -40%），连接 Cursor、Cline、Copilot 等 IDE。</div>
+    <div class="card-highlight score-6"><strong>亮点：</strong>解决开发者多 API 管理痛点，免费 + 聚合路由的设计切中实际需求。</div>
+    <div class="card-score"><strong>评分：6/10</strong> — 实用工具，但业务模式（聚合免费 API）的可持续性存疑，技术壁垒不高。</div>
+  </div>
+
+  <!-- ============ 速览表 ============ -->
+  <div class="summary-table">
+    <h3 style="margin-bottom: 16px; font-size: 18px;">📊 本周速览</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>项目</th>
+          <th>评分</th>
+          <th>Stars</th>
+          <th>语言</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>DeepSeek-TUI</td><td>🔥 9</td><td>24.9K</td><td>Rust</td></tr>
+        <tr><td>2</td><td>PageIndex</td><td>🔥 9</td><td>30.6K</td><td>Python</td></tr>
+        <tr><td>3</td><td>local-deep-research</td><td>🔥 9</td><td>7.2K</td><td>Python</td></tr>
+        <tr><td>4</td><td>skills (mattpocock)</td><td>👍 8</td><td>71.4K</td><td>Shell</td></tr>
+        <tr><td>5</td><td>ruflo</td><td>👍 8</td><td>48.9K</td><td>TypeScript</td></tr>
+        <tr><td>6</td><td>agent-skills (addyosmani)</td><td>👍 8</td><td>39.3K</td><td>Shell</td></tr>
+        <tr><td>7</td><td>TradingAgents</td><td>👍 8</td><td>73.7K</td><td>Python</td></tr>
+        <tr><td>8</td><td>dexter</td><td>👍 7</td><td>25.3K</td><td>TypeScript</td></tr>
+        <tr><td>9</td><td>Pixelle-Video</td><td>👀 6</td><td>15.1K</td><td>Python</td></tr>
+        <tr><td>10</td><td>9router</td><td>👀 6</td><td>8.0K</td><td>JavaScript</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ 推荐 ============ -->
+  <div class="rec-section">
+    <h3 style="font-size: 18px; margin-bottom: 16px;">🎯 场景化推荐</h3>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <h4>🛠️ 搭建 Agent 工具链</h4>
+        <p>DeepSeek-TUI + local-deep-research，终端编码 + 本地深度研究一套搞定。</p>
+      </div>
+      <div class="rec-card">
+        <h4>🔬 研究 RAG 新范式</h4>
+        <p>PageIndex，无向量库推理式检索，可能是 RAG 的下一个演进方向。</p>
+      </div>
+      <div class="rec-card">
+        <h4>🧠 学习多 Agent 架构</h4>
+        <p>TradingAgents，论文级的多 Agent 协作设计，架构清晰可参考。</p>
+      </div>
+      <div class="rec-card">
+        <h4>⚡ 优化编码助手</h4>
+        <p>mattpocock/skills + addyosmani/agent-skills，生产级 Skill 直接复用。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>由 AI 知识库助手自动采集分析 · 数据来源: GitHub Trending Weekly</p>
+    <p style="margin-top: 4px;">
+      <a href="hn-digest-2026-05-11.html" style="color: #0066cc;">💬 查看 HN 热闻精选 →</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

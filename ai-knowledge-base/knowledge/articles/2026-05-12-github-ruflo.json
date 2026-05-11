@@ -1,0 +1,16 @@
+{
+  "id": "github-ruflo",
+  "title": "ruflo",
+  "source_url": "https://github.com/ruvnet/ruflo",
+  "source": "github",
+  "summary": "Claude Code 多 Agent 编排平台，100+ Agent + 联邦通信 + 自学习。",
+  "tags": ["agent", "framework", "security"],
+  "status": "duplicate",
+  "fetched_at": "2026-05-12T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 48948,
+      "language": "TypeScript"
+    }
+  }
+}

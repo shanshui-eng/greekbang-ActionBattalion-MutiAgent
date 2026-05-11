@@ -1,0 +1,16 @@
+{
+  "id": "github-ruflo",
+  "title": "ruflo",
+  "source_url": "https://github.com/ruvnet/ruflo",
+  "source": "github",
+  "summary": "面向 Claude Code 的多 Agent 编排平台，支持 100+ 专业 Agent、HNSW 向量记忆、零信任联邦通信、MCP 协议接入。提供 32 个插件覆盖从代码质量到安全审计的全流程。",
+  "tags": ["agent", "framework", "security"],
+  "status": "published",
+  "fetched_at": "2026-05-11T12:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 48897,
+      "language": "TypeScript"
+    }
+  }
+}
