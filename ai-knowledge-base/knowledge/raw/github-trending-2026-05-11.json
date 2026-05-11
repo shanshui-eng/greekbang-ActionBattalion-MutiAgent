@@ -1,0 +1,72 @@
+﻿[
+  {
+    "title": "DeepSeek-TUI",
+    "url": "https://github.com/Hmbown/DeepSeek-TUI",
+    "source": "github",
+    "popularity": 22034,
+    "summary": "Coding agent for DeepSeek models that runs in your terminal"
+  },
+  {
+    "title": "skills (mattpocock)",
+    "url": "https://github.com/mattpocock/skills",
+    "source": "github",
+    "popularity": 12722,
+    "summary": "Skills for Real Engineers. Straight from my .claude directory."
+  },
+  {
+    "title": "ruflo",
+    "url": "https://github.com/ruvnet/ruflo",
+    "source": "github",
+    "popularity": 10779,
+    "summary": "Agent orchestration platform for Claude. Multi-agent swarms, autonomous workflows, conversational AI"
+  },
+  {
+    "title": "agent-skills (addyosmani)",
+    "url": "https://github.com/addyosmani/agent-skills",
+    "source": "github",
+    "popularity": 10738,
+    "summary": "Production-grade engineering skills for AI coding agents"
+  },
+  {
+    "title": "TradingAgents",
+    "url": "https://github.com/TauricResearch/TradingAgents",
+    "source": "github",
+    "popularity": 8872,
+    "summary": "Multi-Agents LLM Financial Trading Framework"
+  },
+  {
+    "title": "Pixelle-Video",
+    "url": "https://github.com/AIDC-AI/Pixelle-Video",
+    "source": "github",
+    "popularity": 5038,
+    "summary": "AI Fully Automated Short Video Engine"
+  },
+  {
+    "title": "PageIndex",
+    "url": "https://github.com/VectifyAI/PageIndex",
+    "source": "github",
+    "popularity": 4328,
+    "summary": "Document Index for Vectorless, Reasoning-based RAG"
+  },
+  {
+    "title": "9router",
+    "url": "https://github.com/decolua/9router",
+    "source": "github",
+    "popularity": 3318,
+    "summary": "Unlimited FREE AI coding. Connect Claude Code, Codex, Cursor to FREE models via 40+ providers"
+  },
+  {
+    "title": "dexter",
+    "url": "https://github.com/virattt/dexter",
+    "source": "github",
+    "popularity": 2741,
+    "summary": "An autonomous agent for deep financial research"
+  },
+  {
+    "title": "local-deep-research",
+    "url": "https://github.com/LearningCircuit/local-deep-research",
+    "source": "github",
+    "popularity": 2483,
+    "summary": "Local AI deep research with ~95% on SimpleQA. Supports local and cloud LLMs, 10+ search engines"
+  }
+]
