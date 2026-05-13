@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(python hooks/check_quality.py \"knowledge/articles/*.json\")",
+      "Bash(python -m pytest --version)",
+      "Bash(git add *)"
+    ]
+  }
+}

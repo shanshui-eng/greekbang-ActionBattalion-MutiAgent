@@ -1,0 +1,17 @@
+{
+  "id": "github-20260513-001",
+  "title": "LangGraph",
+  "source_url": "https://github.com/langchain-ai/langgraph",
+  "source": "github",
+  "summary": "LangChain 推出的有状态多 Agent 工作流图框架，基于有向图编排 LLM 推理、工具调用和条件分支，支持循环、并行和人类介入。",
+  "score": 9,
+  "tags": ["agent", "framework"],
+  "status": "draft",
+  "fetched_at": "2026-05-13T00:00:00+08:00",
+  "metadata": {
+    "github": {
+      "stars": 12000,
+      "language": "Python"
+    }
+  }
+}

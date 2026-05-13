@@ -1,0 +1,18 @@
+{
+  "id": "github-20260513-001",
+  "title": "Claude Code — Anthropic 官方 CLI 编码 Agent 开源",
+  "source_url": "https://github.com/anthropics/claude-code",
+  "source": "github",
+  "summary": "Anthropic 开源了 Claude Code CLI 工具，支持多模型切换（Opus/Sonnet/Haiku）、SubAgent 并行调度、MCP 协议接入、自定义 Slash Command 和 Hook 系统。内置 test-driven-development、systematic-debugging 等 20+ 开发技能，支持 VS Code 和 JetBrains 插件集成。该项目展示了 Agent 编排和工具调用的最佳实践，对 AI 辅助编程工具体系有重要参考价值。",
+  "tags": ["agent", "toolkit", "opensource"],
+  "status": "published",
+  "fetched_at": "2026-05-13T14:00:00Z",
+  "score": 9,
+  "audience": "advanced",
+  "metadata": {
+    "github": {
+      "stars": 85100,
+      "language": "TypeScript"
+    }
+  }
+}

@@ -400,3 +400,262 @@ organizer (有写权限)
 | 数据怎么传 | 文件系统，不直接调用函数，不覆写 raw 数据 |
 | 重跑策略 | `--force` 强制重跑指定阶段 |
 | 进度追踪 | 流水线日志 + `.status` 文件 |
+
+
+## week 2 编写 JSON 格式校验脚本
+
+### 背景
+
+知识库流水线中，organizer Agent 产出 `knowledge/articles/` 下的 JSON 条目文件。随着条目增多，人工逐条检查字段完整性、格式正确性变得不现实。需要一个自动化校验脚本，作为流水线的质量门禁——在分发之前批量检查所有 JSON 文件是否符合 AGENTS.md §5 定义的标准结构。
+
+### 需求拆解
+
+从"最小可用"出发，梳理出 10 条校验规则：
+
+| # | 校验项 | 说明 |
+|---|--------|------|
+| 1 | 输入模式 | 支持单文件（调试）和多文件通配符（批量） |
+| 2 | JSON 解析 | 捕获 JSONDecodeError，文件损坏立即报错 |
+| 3 | 必填字段 + 类型 | 6 个必填字段：id/str, title/str, source_url/str, summary/str, tags/list, status/str |
+| 4 | ID 格式 | {source}-{YYYYMMDD}-{NNN}，如 github-20260513-001 |
+| 5 | status 枚举 | draft / review / published / archived 四选一 |
+| 6 | URL 格式 | 必须以 http:// 或 https:// 开头 |
+| 7 | 内容约束 | 摘要 ≥ 20 字，标签 ≥ 1 个 |
+| 8 | 可选字段校验 | score 若存在须在 1–10，audience 若存在须为 beginner/intermediate/advanced |
+| 9 | CLI 接口 | python hooks/validate_json.py <json_file> [json_file2 ...] |
+| 10 | 退出码 + 汇总 | 全通过 exit 0，有错误 exit 1，末尾打印文件级 PASS/FAIL 汇总 |
+
+### 设计要点
+
+**1. REQUIRED_FIELDS: dict[str, type] 而非简单列表**
+
+把字段名和期望类型绑在一起，一次 isinstance() 调用同时完成"字段存在"和"类型匹配"两项检查。新增必填字段时只需加一行字典条目，不会漏掉类型校验。
+
+**2. 逐条累积错误而非遇错即停**
+
+_validate_item() 中即使某个字段缺了或类型错了，也不 return，而是继续跑完全部校验项。用户一次运行就能看到所有错误，修一个报一个、反复跑的问题不会出现。唯一提前 return 的场景是 JSON 根节点不是 dict 也不是 list——这种结构性错误导致后续字段访问必然失败，必须提前截断。
+
+**3. main() 支持多文件 + 汇总统计**
+
+批量模式才是实际使用场景——每天产出十几个 JSON 文件，流水线末尾一次性校验。汇总统计让结果一目了然：每文件一行 PASS/FAIL，末尾输出总文件数/总错误数/总警告数。CI 脚本只需读 exit code 即可判断门禁通过与否。
+
+### 实现过程
+
+脚本用纯 Python 标准库实现（json + re + sys + pathlib），零第三方依赖，遵循 PEP 8 和项目的 snake_case / Google docstring 规范。
+
+核心函数只有三个：
+
+- validate_file(filepath) — 读文件 → 解析 JSON → 按根节点类型（dict 或 list）分发到 _validate_item()
+- _validate_item(item, ...) — 对单条条目逐项执行 8 条校验规则，错误追加到列表
+- main() — 解析命令行参数 → 收集文件（单文件直接加入，通配符用 Path.glob() 展开）→ 逐文件校验 → 打印汇总 → 返回 exit code
+
+校验中遇到的问题：
+- **旧数据 ID 格式不兼容**：已有文章使用 github-{repo-name} 格式（如 github-deepseek-tui），新规范要求带日期和序号。首次批量跑 27 个文件报出 47 个格式错误——这是预期行为，后续需要按新规范重新生成文章或做格式迁移。
+- **bool 类型陷阱**：isinstance(True, int) 返回 True（Python 中 bool 是 int 子类），在 score 字段校验时需留意布尔值不会被误判为合法分数。
+
+### 验证
+
+```bash
+# 单文件 — 有效 ID 格式通过
+python hooks/validate_json.py knowledge/articles/_test_valid.json
+# → PASS, exit 0
+
+# 批量通配符 — 扫描全部 27 个文件
+python hooks/validate_json.py knowledge/articles/*.json
+# → 47 errors across 27 files, exit 1（均为旧 ID 格式）
+
+# 非 JSON 文件 — 自动跳过
+python hooks/validate_json.py README.md
+# → [SKIP] 非 JSON 文件
+```
+
+### 产出物
+
+- hooks/validate_json.py — 232 行，纯标准库，零依赖
+
+
+### 测试报告
+
+#### 测试方法
+
+创建 17 个测试夹具文件（5 正向 + 12 反向），覆盖脚本的 8 条校验规则和 2 种输入模式。测试脚本 `hooks/validate_json.py` 对各场景的检测能力和退出码行为。
+
+#### 正向测试（应通过，exit 0）
+
+| # | 测试用例 | 说明 | 结果 |
+|---|---------|------|------|
+| 1 | positive_single.json | 单条目，含全部必填字段 | PASS |
+| 2 | positive_list.json | 多条目列表（3 条，含 github/hn/arxiv 源） | PASS |
+| 3 | positive_with_optional.json | 含可选字段 score=8, audience=advanced | PASS |
+| 4 | positive_minimal.json | 边界值：摘要恰好 20 字，标签恰好 1 个 | PASS |
+| 5 | positive_hn.json | HN 源条目含 metadata.hn 结构 | PASS |
+
+#### 反向测试（应报错，exit 1）
+
+| # | 测试用例 | 触发规则 | 错误类别 | 结果 |
+|---|---------|---------|---------|------|
+| 1 | negative_missing_field.json | 缺少必填字段 id | MISSING | FAIL (exit 1) |
+| 2 | negative_wrong_type.json | tags 为 string 而非 list | TYPE_ERROR | FAIL (exit 1) |
+| 3 | negative_bad_id.json | ID 格式为旧式 github-repo-name | FORMAT | FAIL (exit 1) |
+| 4 | negative_bad_status.json | status=deleted 不在枚举中 | VALUE | FAIL (exit 1) |
+| 5 | negative_bad_url.json | URL 使用 ftp 协议 | FORMAT | FAIL (exit 1) |
+| 6 | negative_short_summary.json | 摘要仅 3 字 | LENGTH | FAIL (exit 1) |
+| 7 | negative_empty_tags.json | 标签数组为空 | LENGTH | FAIL (exit 1) |
+| 8 | negative_bad_score.json | score=99 超出 [1,10] | VALUE | FAIL (exit 1) |
+| 9 | negative_bad_audience.json | audience=expert 不在枚举中 | VALUE | FAIL (exit 1) |
+| 10 | negative_broken_json.json | JSON 语法损坏 | PARSE_ERROR | FAIL (exit 1) |
+| 11 | negative_bare_string.json | JSON 根为裸字符串非 dict/list | TYPE_ERROR | FAIL (exit 1) |
+| 12 | negative_multi_error.json | 单条目同时触发 7 项错误 | FORMAT+VALUE+LENGTH | FAIL (exit 1, 7 errors) |
+
+#### 附加测试
+
+| # | 测试用例 | 说明 | 结果 |
+|---|---------|------|------|
+| 批处理模式 | hooks/test_fixtures/*.json | 17 个文件混合校验，5 PASS + 12 FAIL，18 errors | exit 1 |
+| 非 JSON 跳过 | README.md | 非 .json 后缀文件自动跳过 | SKIP |
+
+#### 测试结论
+
+- **正向 5/5 全部通过**，exit 0
+- **反向 12/12 全部正确拒绝**，exit 1，错误类别匹配预期
+- **退出码行为**符合门禁需求：全通过 = 0，有错误 = 1
+- **多错误累积**验证通过：单条目 7 项错误一次全部报告，无短路
+- **批处理汇总**验证通过：混合文件正确区分 PASS/FAIL
+- **非 JSON 文件**自动跳过，不产生误报
+
+
+### 自动化单元测试
+
+编写 `hooks/test_validate_json.py`，使用标准库 `unittest` 框架，共 69 个用例覆盖所有校验规则、边界条件和 CLI 路径。
+
+#### 测试组织
+
+| 测试类 | 用例数 | 覆盖范围 |
+|--------|--------|---------|
+| `TestREQUIRED_FIELDS` | 2 | 字段名和类型的字典正确性 |
+| `TestIDPattern` | 8 | ID 正则：合法/非法格式、边界 |
+| `TestURLPattern` | 5 | URL 正则：http/https 通过、ftp/纯文本/空 拒绝 |
+| `TestConstants` | 2 | status 和 audience 枚举值 |
+| `TestValidateItem` | 30 | `_validate_item()` 全部 8 条校验规则的正反向 |
+| `TestValidateFile` | 10 | `validate_file()` 文件级集成测试 |
+| `TestMain` | 12 | `main()` CLI 入口、exit code、通配符展开 |
+
+#### 正向用例 (14 个)
+
+| 用例 | 说明 |
+|------|------|
+| test_minimal_valid_item_passes | 最小合法条目通过 |
+| test_valid_item_with_optional_fields | 含 score + audience 通过 |
+| test_boundary_summary_20_chars | 摘要恰好 20 字通过 |
+| test_boundary_score_1 / _10 | score=1 和 score=10 通过 |
+| test_score_none_skipped | score=None 跳过检查 |
+| test_audience_none_skipped | audience=None 跳过检查 |
+| test_valid_single_dict_passes | 文件级 dict 条目通过 |
+| test_valid_list_passes | 文件级 3 条 list 通过 |
+| test_valid_with_optional_fields_passes | 文件级含可选字段通过 |
+| test_empty_list_passes | 空数组通过 |
+| test_valid_file_exit_0 | main() 退出码 0 |
+| test_glob_pattern_expands | 通配符自动展开 |
+
+#### 反向用例 (55 个)
+
+| 错误类别 | 用例数 | 示例 |
+|---------|--------|------|
+| MISSING | 6 | 逐字段缺失：id/title/source_url/summary/tags/status |
+| TYPE_ERROR | 9 | id 为 int、tags 为 str、summary 为 int、非 dict 条目、裸 JSON 根 |
+| FORMAT | 6 | ID 旧格式/缺日期/缺序号、URL ftp 协议/纯文本 |
+| VALUE | 10 | status=deleted/duplicate、score=0/99/str、audience=expert/123 |
+| LENGTH | 4 | 摘要 2 字/19 字、标签空数组、标签元素类型 |
+| PARSE_ERROR | 1 | JSON 语法损坏 |
+| 多错误累积 | 1 | 单条目 7 项错误一次报告 |
+| 文件跳过 | 2 | 非 .json 后缀、不存在路径 |
+| CLI 集成 | 6 | 无参数、无效文件、混合文件、无匹配 |
+
+#### 运行方式
+
+```bash
+# unittest (标准库，零依赖)
+python -m unittest hooks/test_validate_json.py --verbose
+
+# pytest (可选)
+pytest hooks/test_validate_json.py --verbose
+```
+
+#### 测试结果
+
+```
+Ran 69 tests in 0.024s — OK
+```
+
+全部 69 个用例通过，0 失败，0 错误。
+
+
+
+
+
+## week2 hooks 机制
+
+
+### Hooks 端到端验证：新增条目 → 自动校验 → 质量评分
+
+创建一条符合新规范的知识条目 `knowledge/articles/2026-05-13-github-claude-code.json`，验证 hooks 工具链的完整闭环。
+
+#### 测试条目
+
+| 字段 | 值 |
+|------|-----|
+| id | `github-20260513-001`（新格式） |
+| title | Claude Code — Anthropic 官方 CLI 编码 Agent 开源 |
+| source_url | `https://github.com/anthropics/claude-code` |
+| summary | 245 字中文摘要，含 Agent/工具/开源/模型等技术关键词 |
+| tags | `["agent", "toolkit", "opensource"]`（3 个，全部在标准库中） |
+| status | `published` |
+| score | 9 |
+| audience | `advanced` |
+| metadata | github: {stars: 85100, language: "TypeScript"} |
+
+#### validate_json.py 结果
+
+```
+PASS  knowledge\articles\2026-05-13-github-claude-code.json  (0 ok, 0 errors)
+→ exit 0
+```
+
+#### check_quality.py 结果
+
+| 维度 | 得分 | 说明 |
+|------|------|------|
+| 摘要质量 | 24/25 | 长度 245 字 (+20)，命中 4 个技术关键词 (+4): Agent、开源、工具、模型 |
+| 技术深度 | 22.5/25 | 原始评分 9/10 → 22.5/25 |
+| 格式规范 | 20/20 | id ✓ / title ✓ / url ✓ / status ✓ / ts ✓（新格式 ID 通过） |
+| 标签精度 | 15/15 | 3 个标签全部在标准库中 |
+| 空洞词检测 | 15/15 | 未检测到空洞词 |
+| **总分** | **96.5/100** | **等级 A** ✅ |
+
+#### 插件自动触发分析
+
+`.opencode/plugins/validate.ts` 监听 `tool.execute.after` 事件，在 Write/Edit 操作后自动校验：
+
+- **触发条件**：`input.tool === "write" || input.tool === "edit"`，且文件路径匹配 `knowledge/articles/*.json`
+- **本次观察**：Write 工具创建文件后，插件在校验 PASS 时静默（只 warn on FAIL），故无可见输出——这是正确的设计行为
+- **反证**：如写入格式错误的 JSON（旧 ID、非法 status），插件会打印 `[validate-json] FAIL: <filepath>` + 错误详情
+
+#### 工具链闭环总结
+
+```
+Write/Edit 工具写入 knowledge/articles/*.json
+        │
+        ▼
+┌──────────────────────────┐
+│ validate.ts (自动触发)   │  ← 格式门禁，失败时 console.warn
+│ → validate_json.py       │
+└──────────────────────────┘
+        │
+        ▼ (手动或流水线调用)
+┌──────────────────────────┐
+│ check_quality.py         │  ← 5 维度评分 + A/B/C 等级
+└──────────────────────────┘
+```
+
+- **旧条目**（旧 ID 格式）平均分 58.2（C 级为主），因为缺少 score 字段、ID 格式不兼容
+- **新条目**（新规范）96.5 分（A 级），证明了新规范 + hooks 校验链的有效性
