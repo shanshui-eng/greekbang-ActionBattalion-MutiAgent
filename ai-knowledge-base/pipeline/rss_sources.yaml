@@ -1,0 +1,117 @@
+# RSS 数据源配置
+# 每个源的 enabled 字段控制是否参与采集
+# 高流量源默认关闭，按需手动开启
+
+sources:
+  # ── 综合技术 ──
+  - name: "Hacker News Best (AI 过滤)"
+    url: "https://hnrss.org/best?count=30"
+    category: "综合技术"
+    enabled: false          # HN 流量大，默认关闭
+    notes: "hnrss.org 提供的 HN 热门 RSS，采集后按 AI 关键词过滤"
+
+  - name: "Lobsters AI/ML"
+    url: "https://lobste.rs/t/ai.rss"
+    category: "综合技术"
+    enabled: true
+    notes: "Lobsters 社区的 AI/ML 标签聚合"
+
+  - name: "Reddit r/MachineLearning"
+    url: "https://www.reddit.com/r/MachineLearning/top.rss?t=day"
+    category: "综合技术"
+    enabled: false          # Reddit 噪音多，默认关闭
+    notes: "Reddit ML 版块每日热帖"
+
+  # ── AI 研究 ──
+  - name: "arXiv cs.AI"
+    url: "https://export.arxiv.org/rss/cs.AI"
+    category: "AI 研究"
+    enabled: true
+    notes: "人工智能领域最新论文"
+
+  - name: "arXiv cs.CL"
+    url: "https://export.arxiv.org/rss/cs.CL"
+    category: "AI 研究"
+    enabled: true
+    notes: "计算语言学 / NLP 领域"
+
+  - name: "arXiv cs.LG"
+    url: "https://export.arxiv.org/rss/cs.LG"
+    category: "AI 研究"
+    enabled: false          # 量大，默认关闭
+    notes: "机器学习领域，每日论文量大"
+
+  - name: "arXiv cs.CV"
+    url: "https://export.arxiv.org/rss/cs.CV"
+    category: "AI 研究"
+    enabled: false          # 量大，默认关闭
+    notes: "计算机视觉领域，每日论文量大"
+
+  # ── 公司博客 ──
+  - name: "Hugging Face Blog"
+    url: "https://huggingface.co/blog/feed.xml"
+    category: "公司博客"
+    enabled: true
+    notes: "Hugging Face 官方技术博客"
+
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss.xml"
+    category: "公司博客"
+    enabled: true
+    notes: "OpenAI 官方博客 (RSS 可用性需验证)"
+
+  - name: "Anthropic Research"
+    url: "https://www.anthropic.com/research/feed"
+    category: "公司博客"
+    enabled: true
+    notes: "Anthropic 研究博客 (RSS 可用性需验证)"
+
+  - name: "Google DeepMind Blog"
+    url: "https://deepmind.google/blog/feed.xml"
+    category: "公司博客"
+    enabled: true
+    notes: "DeepMind 官方博客 (RSS 可用性需验证)"
+
+  - name: "Meta AI Blog"
+    url: "https://ai.meta.com/blog/feed.xml"
+    category: "公司博客"
+    enabled: true
+    notes: "Meta AI 官方博客 (RSS 可用性需验证)"
+
+  # ── 中文社区 ──
+  - name: "机器之心"
+    url: "https://www.jiqizhixin.com/rss"
+    category: "中文社区"
+    enabled: false          # RSS 可用性待确认
+    notes: "国内 AI 媒体，RSS 地址需验证"
+
+  - name: "量子位"
+    url: "https://www.qbitai.com/feed"
+    category: "中文社区"
+    enabled: false          # RSS 可用性待确认
+    notes: "国内 AI 媒体，RSS 地址需验证"
+
+  # ── 扩展源 ──
+  - name: "Reddit r/MachineLearning (hot)"
+    url: "https://www.reddit.com/r/MachineLearning/hot.rss"
+    category: "research"
+    enabled: true
+    notes: "Reddit ML 版块 hot 排序，与 top 互补"
+
+  - name: "Reddit r/LocalLLaMA"
+    url: "https://www.reddit.com/r/LocalLLaMA/hot.rss"
+    category: "open-source"
+    enabled: true
+    notes: "本地 LLM 部署 & 开源模型讨论"
+
+  - name: "Google AI Blog"
+    url: "https://blog.google/technology/ai/rss/"
+    category: "industry"
+    enabled: true
+    notes: "Google 官方 AI 博客"
+
+  - name: "The Verge (AI)"
+    url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+    category: "news"
+    enabled: true
+    notes: "The Verge AI 板块 RSS"
